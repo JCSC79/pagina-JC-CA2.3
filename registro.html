@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Código Maestro</title>
+  <link rel="stylesheet" href="miestilo.css">
+  <script>
+    // Función para poner la primera letra en mayúscula (solo para nombre y apellido)
+    function capitalizeFirstLetter(input) {
+      input.value = input.value.charAt(0).toUpperCase() + input.value.slice(1);
+    }
+
+    // Función para validar que las contraseñas coincidan
+    function validatePasswords(event) {
+      var pass = document.getElementById("password");
+      var confirmPass = document.getElementById("confirmar");
+      if(pass.value !== confirmPass.value) {
+        alert("Las contraseñas no coinciden.");
+        event.preventDefault(); // Evita el envío del formulario
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" 
+         alt="Logo de programación" 
+         class="logo">
+    <h1>Registro</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="fundamentos.html">Fundamentos</a></li>
+        <li><a href="web.html">Desarrollo Web</a></li>
+        <li><a href="datos.html">Ciencia de Datos</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="conocenos.html">Conócenos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Página sin lateral: se agrega la clase "no-lateral" -->
+  <main class="contenedor-columnas no-lateral">
+    <section class="columna-principal">
+      <article>
+        <h2>Únete a nuestra comunidad</h2>
+        <p>Regístrate para recibir material exclusivo y acceder a nuestros cursos.</p>
+        <div class="tarjeta">
+          <form action="" method="POST" onsubmit="validatePasswords(event)">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" onblur="capitalizeFirstLetter(this)" required>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" onblur="capitalizeFirstLetter(this)" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <!-- Campo email sin autocapitalizar -->
+            <input type="email" id="email" name="email" placeholder="ejemplo@dominio.com" required>
+
+            <label for="telefono">Teléfono:</label>
+            <!-- Validación: 9 dígitos; se asume formato español -->
+            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" title="Introduce 9 dígitos" required>
+
+            <label for="password">Contraseña:</label>
+            <!-- Pattern: Al menos una minúscula, una mayúscula, un dígito, un carácter especial y mínimo 8 caracteres -->
+            <input type="password" id="password" name="password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}" 
+                   title="La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un dígito y un carácter especial" required>
+
+            <label for="confirmar">Confirmar Contraseña:</label>
+            <input type="password" id="confirmar" name="confirmar" required>
+
+            <button type="submit">Registrarse</button>
+          </form>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Código Maestro. Todos los derechos reservados.</p>
+    <address>Contacto: <a href="mailto:info@codigomaestro.com">info@codigomaestro.com</a></address>
+  </footer>
+</body>
+</html>
