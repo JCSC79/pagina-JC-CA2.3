@@ -57,7 +57,17 @@
             <label for="email">Correo Electrónico:</label>
             <!-- Campo email sin autocapitalizar -->
             <input type="email" id="email" name="email" placeholder="ejemplo@dominio.com" required>
-
+            <script>
+              document.getElementById("email").addEventListener("input", function() {
+                var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!regex.test(this.value)) {
+                  this.setCustomValidity("Introduce un correo válido con dominio. Ejemplo: usuario@dominio.com");
+                } else {
+                  this.setCustomValidity("");
+                }
+              });
+            </script>
+            
             <label for="telefono">Teléfono:</label>
             <!-- Validación: 9 dígitos; se asume formato español -->
             <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" title="Introduce 9 dígitos" required>
