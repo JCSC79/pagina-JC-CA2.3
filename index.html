@@ -6,13 +6,10 @@
   <title>Aprendiendo código fácil - Aprende Programación</title>
   <link rel="stylesheet" href="miestilo.css">
 </head>
-<!-- Se agrega la clase "pagina-inicio" para activar la barra lateral en esta página -->
 <body class="pagina-inicio">
-  <!-- Cabecera con logo y título -->
   <header>
     <button id="modo-btn">🌙 Modo Oscuro</button>
     <script src="modo.js"></script>
-
 
     <img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" 
          alt="Logo de programación" 
@@ -30,9 +27,8 @@
     </nav>
   </header>
 
-  <!-- Contenido principal en dos columnas -->
   <main class="contenedor-columnas">
-    <!-- Columna izquierda: contenido principal -->
+    <!-- Contenido principal -->
     <section class="columna-principal">
       <article>
         <h2>Bienvenido al Mundo de la Programación</h2>
@@ -46,9 +42,57 @@
           </ul>
         </div>
       </article>
+
+      <!-- Tabla Comparativa -->
+      <section>
+        <h2>Comparación de Lenguajes de Programación</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Lenguaje</th>
+              <th>Uso Principal</th>
+              <th>Facilidad de Aprendizaje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Python</td>
+              <td>Inteligencia Artificial, Data Science, Desarrollo Web</td>
+              <td>Fácil</td>
+            </tr>
+            <tr>
+              <td>JavaScript</td>
+              <td>Desarrollo Web, Aplicaciones Frontend y Backend</td>
+              <td>Intermedio</td>
+            </tr>
+            <tr>
+              <td>Java</td>
+              <td>Aplicaciones Empresariales, Desarrollo Android</td>
+              <td>Intermedio</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Video -->
+      <section>
+        <h2>¿Qué es la Programación?</h2>
+        <p>Aprende de manera rápida qué es la programación y por qué es tan importante.</p>
+        <iframe width="560" height="415" src="https://www.youtube.com/embed/7yCkEAySung?si=FTbHkzacLsCBR6nR" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </section>
+
+      <!-- Galería de Imágenes -->
+      <section>
+        <h2>Explora el Mundo del Código</h2>
+        <div class="galeria">
+          <img src="imagen1.jpg" alt="Código en pantalla">
+          <img src="imagen2.jpg" alt="Editor de código con líneas de programación">
+          <img src="imagen3.jpg" alt="Programador trabajando">
+        </div>
+      </section>
     </section>
 
-    <!-- Columna derecha: barra lateral (visible solo en index gracias a "pagina-inicio") -->
+    <!-- Barra lateral -->
     <aside class="barra-lateral">
       <div class="widget">
         <h3>Lenguajes Populares</h3>
@@ -58,14 +102,24 @@
           <li><span class="java">Java</span></li>
         </ul>
       </div>
+
       <div class="widget">
         <h3>Próximos Cursos</h3>
         <p>¡Únete a nuestro curso de Python básico!</p>
       </div>
+
+      <div class="widget">
+        <h3>Quiz Rápido</h3>
+        <p>¿Cuál es el lenguaje de programación más usado en la web?</p>
+        <ul>
+          <li><input type="radio" name="quiz"> C++</li>
+          <li><input type="radio" name="quiz"> Python</li>
+          <li><input type="radio" name="quiz"> JavaScript ✅</li>
+        </ul>
+      </div>
     </aside>
   </main>
 
-  <!-- Pie de página con contacto -->
   <footer>
     <p>&copy; 2025 Aprendiendo código fácil. Todos los derechos reservados.</p>
     <address>Contacto: <a href="mailto:info@codigomaestro.com">info@codigomaestro.com</a></address>
