@@ -1,6 +1,6 @@
 /* Variables globales para colores */
 
-/*Tema claro (por defecto)*/
+/* Tema claro (por defecto) */
 :root {
   --color-principal: #0a192f;    /* Fondo principal de la cabecera y footer */
   --color-accento: #64ffda;      /* Color de acento para enlaces y bordes */
@@ -169,7 +169,7 @@ img {
 }
 
 img:hover {
-  transform: scale(1.1);     /* Aumenta ligeramente el tamaño al pasar el cursor */
+  transform: scale(1.3);     /* Aumenta ligeramente el tamaño al pasar el cursor */
 }
 
 /* Pie de página */
@@ -240,4 +240,77 @@ form input:focus {
 /* Solo aplicamos "text-transform: capitalize" a los inputs de nombre y apellido */
 #nombre, #apellido {
   text-transform: capitalize;
+}
+
+/* ========================= */
+/* Indicador de Fortaleza de Contraseña */
+/* ========================= */
+#password-strength {
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+#strength-text {
+  font-weight: bold;
+}
+
+#strength-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background-color: #ccc; /* Color inicial (gris) */
+  margin-top: 5px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Colores según la fortaleza de la contraseña */
+.weak {
+  background-color: red !important;
+  width: 33%;
+}
+
+.medium {
+  background-color: orange !important;
+  width: 66%;
+}
+
+.strong {
+  background-color: green !important;
+  width: 100%;
+}
+
+/* ========================= */
+/* Estilos para Botones Secundarios y de Envío */
+/* ========================= */
+.btn-secondary {
+  background-color: #aaa;  /* Color neutro */
+  color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: #888;
+}
+
+.btn-submit {
+  background-color: var(--color-accento);
+  color: var(--color-principal);
+  padding: 1rem;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-hover);
+  color: white;
 }
