@@ -61,11 +61,21 @@ document.addEventListener("DOMContentLoaded", function() {
       evaluarSeguridad(this.value);
     });
   
-    // Validar que las contraseñas coincidan al enviar el formulario
+    // Validar que las contraseñas coincidan y validar DNI al enviar el formulario
     const form = document.querySelector("form");
     form.addEventListener("submit", function(event) {
       const pass = document.getElementById("password");
       const confirmPass = document.getElementById("confirmar");
+      const dniInput = document.getElementById("dni");
+      
+      // Ejecutar la validación del DNI y convertir a mayúsculas
+      validarDNI(dniInput);
+      if (!dniInput.checkValidity()) {
+        event.preventDefault(); // Evita el envío si el DNI es inválido
+        dniInput.reportValidity(); // Muestra el mensaje de error
+        return;
+      }
+  
       if (pass.value !== confirmPass.value) {
         alert("Las contraseñas no coinciden.");
         event.preventDefault();
@@ -91,8 +101,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // === VALIDAR DNI: Convertir a mayúsculas y validar formato y letra ===
     function validarDNI(input) {
-      var dni = input.value.toUpperCase();
-      input.value = dni; // Forzar que el valor sea mayúsculas
+      var dni = input.value.toUpperCase(); // Convertir a mayúsculas
+      input.value = dni; // Actualiza el valor en el campo
       var pattern = /^[0-9]{8}[A-Z]$/;
       if (!pattern.test(dni)) {
         input.setCustomValidity("El DNI debe tener 8 dígitos seguidos de una letra. Ejemplo: 12345678Z.");
@@ -111,6 +121,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const dniInput = document.getElementById("dni");
     if (dniInput) {
       dniInput.addEventListener("blur", function() {
+        validarDNI(this);
+      });
+      dniInput.addEventListener("input", function() {
         validarDNI(this);
       });
     }

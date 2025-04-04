@@ -10,7 +10,6 @@
   <header>
     <button id="modo-btn">🌙 Modo Oscuro</button>
     <script src="modo.js"></script>
-
     <img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" 
          alt="Logo de programación" 
          class="logo">
@@ -78,7 +77,7 @@
       <section>
         <h2>¿Qué es la Programación?</h2>
         <p>Aprende de manera rápida qué es la programación y por qué es tan importante.</p>
-        <iframe width="560" height="415" src="https://www.youtube.com/embed/7yCkEAySung?si=FTbHkzacLsCBR6nR" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="415" src="https://www.youtube.com/embed/7yCkEAySung?si=FTbHkzacLsCBR6nR" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </section>
 
       <!-- Galería de Imágenes -->
@@ -112,10 +111,12 @@
         <h3>Quiz Rápido</h3>
         <p>¿Cuál es el lenguaje de programación más usado en la web?</p>
         <ul>
-          <li><input type="radio" name="quiz"> C++</li>
-          <li><input type="radio" name="quiz"> Python</li>
-          <li><input type="radio" name="quiz"> JavaScript ✅</li>
+          <li><input type="radio" name="quiz" value="C++"> C++</li>
+          <li><input type="radio" name="quiz" value="Python"> Python</li>
+          <li><input type="radio" name="quiz" value="JavaScript"> JavaScript</li>
         </ul>
+        <button type="button" id="quiz-submit" class="btn-secondary">Comprobar respuesta</button>
+        <div id="quiz-feedback"></div>
       </div>
     </aside>
   </main>
@@ -125,5 +126,29 @@
     <address>Contacto: <a href="mailto:info@codigomaestro.com">info@codigomaestro.com</a></address>
   </footer>
 
+  <!-- Script para el miniquiz -->
+  <script>
+    document.getElementById("quiz-submit").addEventListener("click", function() {
+      const radios = document.getElementsByName("quiz");
+      let respuesta = "";
+      for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          respuesta = radios[i].value;
+          break;
+        }
+      }
+      const feedback = document.getElementById("quiz-feedback");
+      if (respuesta === "JavaScript") {
+        feedback.textContent = "¡Respuesta correcta!";
+        feedback.style.color = "green";
+      } else if (respuesta === "") {
+        feedback.textContent = "Por favor, selecciona una respuesta.";
+        feedback.style.color = "orange";
+      } else {
+        feedback.textContent = "Respuesta incorrecta. La respuesta correcta es JavaScript.";
+        feedback.style.color = "red";
+      }
+    });
+  </script>
 </body>
 </html>
